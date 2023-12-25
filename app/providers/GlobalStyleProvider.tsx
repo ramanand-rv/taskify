@@ -1,15 +1,12 @@
+'use client'
 import React from 'react'
 
-interface Props{
+interface Props {
   children: React.ReactNode;
 }
-const GlobalStyleProvider = ({children}: Props) => {
-  return 
-    <GlobalStyles>
-      {children}
-    </GlobalStyles>
-  
+const GlobalStyleProvider = ({ children }: Props) => {
+  return <div className='p-10 flex gap-10 max-h-full'>{children}</div>
+
 }
 
-const GlobalStyles = styled.div``;
 export default GlobalStyleProvider
