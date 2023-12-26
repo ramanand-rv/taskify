@@ -1,8 +1,10 @@
 'use client'
 import { useGlobalState } from '@/app/context/globalProvider'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
+import menu from '@/app/utils/menu';
 
 const Sidebar = () => {
   const { theme } = useGlobalState();
@@ -18,7 +20,9 @@ const Sidebar = () => {
         </h1>
       </div>
       <ul className="nav-items">
-        
+        {menu.map((item)=>{return <li>
+          <Link href={item.link}>{item.title}</Link>
+        </li>})}
       </ul>
     </div>
   </SidebarStyles>
