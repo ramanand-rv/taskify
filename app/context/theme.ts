@@ -30,6 +30,8 @@ const themes = [
         colorGrey8: '#343a40',
         colorBorder: '#f8f9fa14',
         colorGrey9: '#212529b7',
+        borderColor2: '#336699',
+        borderWidth: '16rem'
     },
     {
         name: 'light',
@@ -62,6 +64,10 @@ const themes = [
         colorGrey8: '#343a40',
         colorBorder: '#f8f9fa14',
         colorGrey9: '#212529b7',
+        borderColor2: '#336699',
+        borderWidth: '16rem'
+
+
     },
 ]
 
