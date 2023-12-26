@@ -21,6 +21,7 @@ const Sidebar = () => {
       </div>
       <ul className="nav-items">
         {menu.map((item)=>{return <li>
+          {item.icon}
           <Link href={item.link}>{item.title}</Link>
         </li>})}
       </ul>
