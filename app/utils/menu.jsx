@@ -1,32 +1,29 @@
-import { FaHouse } from "react-icons/fa";
-import { MdPriorityHigh } from "react-icons/md";
-import { FaCheckDouble } from "react-icons/fa";
-import { LuListTodo } from "react-icons/lu";
+import { home, important, completed, list } from "./Icons";
 
 export const menu = [
     {
         id: 1,
         title: "All Tasks",
         link: "/",
-        icon: <FaHouse />,
+        icon: home,
     },
     {
         id: 2,
         title: "Important",
         link: "important",
-        icon: <MdPriorityHigh />,
+        icon: important,
     },
     {
         id: 3,
         title: "Completed",
         link: "/completed",
-        icon: <FaCheckDouble />,
+        icon: completed,
     },
     {
         id: 4,
         title: "Do it Now",
         link: "/todo",
-        icon: <LuListTodo />,
+        icon: list,
     },
 ];
 

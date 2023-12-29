@@ -4,7 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
-import { menu } from '@/app/utils/menu'
+import { menu } from '@/app/utils/menu';
+
 
 const Sidebar = () => {
   const { theme } = useGlobalState();
@@ -20,7 +21,7 @@ const Sidebar = () => {
         </h1>
       </div>
       <ul className="nav-items">
-        {menu.map((item)=>{return <li>
+        {menu.map((item)=>{return <li key={item.id}>
           {item.icon}
           <Link href={item.link}>{item.title}</Link>
         </li>})}
