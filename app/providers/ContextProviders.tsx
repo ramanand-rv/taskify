@@ -12,13 +12,13 @@ const ContextProviders = ({children}:Props) => {
         setTimeout(() => {
             setIsReady(true);
         }, 200);
-    });
+    }, []);
     if(!isReady){
         return null;
     }
 
-  return ( <GlobalProvider >{children} </GlobalProvider>
-  )
+  return <GlobalProvider >{children} </GlobalProvider>
+  
 }
 
 export default ContextProviders

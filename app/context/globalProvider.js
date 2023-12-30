@@ -10,7 +10,7 @@ export const GlobalProvider = ({ children }) => {
   const theme = themes[selectedTheme];
   return (
     <GlobalContext.Provider value={{theme,}}>
-      <GlobalUpdateContext.Provider value={useGlobalState}>
+      <GlobalUpdateContext.Provider value={{}}>
         {children}
       </GlobalUpdateContext.Provider>
     </GlobalContext.Provider>
@@ -18,4 +18,4 @@ export const GlobalProvider = ({ children }) => {
 }
 
 export const useGlobalState = () => useContext(GlobalContext);
-export const useGlobalUpdate = () => useContext(GlobalUpdateContext);
+// export const useGlobalUpdate = () => useContext(GlobalUpdateContext);
