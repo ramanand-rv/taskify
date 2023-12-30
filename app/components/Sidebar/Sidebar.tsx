@@ -26,8 +26,8 @@ const Sidebar = () => {
       <div className="user-btn absolute z-20 top-0 w-full h-full">
         {/* <UserButton /> */}
       </div>
-      <h1 className="capitalize truncate">
-        {'Tony dfghfgt hbrth  Stark'}
+      <h1 className="capitalize">
+        {'Tony Stark'}
       </h1>
     </div>
     <ul className="nav-items justify-center mt-8">
@@ -101,11 +101,9 @@ const SidebarStyles = styled.nav`
     }
 
     h1 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       display: flex;
-      /* flex-direction: column; */
-
-      line-height: 1.4rem;
+      flex-direction: column;
     }
 
     .image,
@@ -156,7 +154,7 @@ const SidebarStyles = styled.nav`
     display: grid;
     grid-template-columns: 40px 1fr;
     cursor: pointer;
-    align-items: center;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    align-items: center;                                                                       
 
     &::after {
       position: absolute;
