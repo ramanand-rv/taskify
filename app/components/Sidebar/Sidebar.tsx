@@ -8,7 +8,7 @@ import { menu } from '@/app/utils/menu';
 import { usePathname, useRouter } from 'next/navigation'
 
 function handleClick(link: string) {
-  throw new Error('Function not implemented.')
+  console.log('Function not implemented.')
 }
 
 
