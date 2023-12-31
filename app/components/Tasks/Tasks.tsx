@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 const Tasks = () => {
     const {theme} = useGlobalState();
-    return <TaskStyled theme={theme}>Taskzzz</TaskStyled>
+    return <TaskStyled theme={theme}>Task</TaskStyled>
 }
 
 const TaskStyled = styled.main`
