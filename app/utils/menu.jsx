@@ -10,7 +10,7 @@ export const menu = [
     {
         id: 2,
         title: "Important",
-        link: "important",
+        link: "/important",
         icon: important,
     },
     {
