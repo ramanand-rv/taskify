@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { GlobalProvider } from '../context/globalProvider';
+import { Toaster } from 'react-hot-toast';
 
 interface Props{
     children: React.ReactNode;
@@ -17,7 +18,10 @@ const ContextProviders = ({children}:Props) => {
         return null;
     }
 
-  return <GlobalProvider >{children} </GlobalProvider>
+  return <GlobalProvider >
+    <Toaster />
+    {children} 
+    </GlobalProvider>
   
 }
 
