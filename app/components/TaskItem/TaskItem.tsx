@@ -4,6 +4,7 @@ import { useGlobalState } from '@/app/context/globalProvider';
 import { edit, trash } from '@/app/utils/Icons';
 import React from 'react'
 import styled from 'styled-components';
+import formateDate from '@/app/utils/FormatDate';
 
 interface Props {
     title: string;
@@ -19,9 +20,9 @@ const TaskItem = ({ title, description, date, isCompleted, isImportant }: Props)
     return (
         <TaskItemStyled theme={theme} className='task-tile'>
 
-            <h2>{title}</h2>
-            <p>{description}</p>
-            <p>{date}</p>
+            <h2 className='title capitalize'>{title}</h2>
+            <p className='desc'>{description}</p>
+            <p className='date'>{formateDate(date)}</p>
             <div className="task-footer">
                 {isCompleted ? (
                     <button className='completed'>Completed</button>
@@ -45,9 +46,14 @@ const TaskItemStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    justify-content: space-between;
 
     .task-tileP{
         margin: 0 1rem;
+    }
+
+    .date{
+        margin-top: auto;
     }
 
     
