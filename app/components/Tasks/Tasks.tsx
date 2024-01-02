@@ -74,5 +74,8 @@ const TaskStyled = styled.main`
             color: ${(props)=> props.theme.colorGrey0};
         }
     }
+
+    
+
 `;
 export default Tasks;

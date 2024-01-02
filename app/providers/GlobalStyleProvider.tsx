@@ -14,5 +14,11 @@ const GlobalStyles = styled.div`
   display: flex;
   gap: 2.5rem;
   height: 100vh;
+
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
 `;
 export default GlobalStyleProvider;

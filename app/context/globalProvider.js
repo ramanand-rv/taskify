@@ -22,7 +22,6 @@ export const GlobalProvider = ({ children }) => {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
-      toast.error('Could not fetch any task');
     }
   }
   useEffect(() => {
