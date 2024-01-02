@@ -58,8 +58,7 @@ function CreateContent() {
 
             if (!res.data.error) {
                 toast.success("Task created successfully.");
-                allTasks();
-                closeModal();
+
             }
         } catch (error) {
             toast.error("Something went wrong.");
@@ -88,14 +87,14 @@ function CreateContent() {
                     onChange={handleChange("description")}
                     name="description"
                     id="description"
-                    rows={4}
+                    rows={3}
                     placeholder="e.g, Watch a video about Next.js Auth"
                 ></textarea>
             </div>
             <div className="input-control">
                 <label htmlFor="date">Date</label>
                 <input
-                    value={date}
+                    value={date.toString()}
                     onChange={handleChange("date")}
                     type="date"
                     name="date"
