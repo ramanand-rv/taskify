@@ -75,6 +75,10 @@ const TaskStyled = styled.main`
         }
     }
 
+    .tasks{
+        margin: 1rem 2rem;
+    }
+
     
 
 `;

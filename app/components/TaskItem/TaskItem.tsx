@@ -17,7 +17,7 @@ interface Props {
 const TaskItem = ({ title, description, date, isCompleted, isImportant }: Props) => {
     const {theme} = useGlobalState();
     return (
-        <TaskItemStyled theme={theme}>
+        <TaskItemStyled theme={theme} className='task-tile'>
 
             <h2>{title}</h2>
             <p>{description}</p>
@@ -45,6 +45,12 @@ const TaskItemStyled = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+
+    .task-tileP{
+        margin: 0 1rem;
+    }
+
+    
 
 
 `;
