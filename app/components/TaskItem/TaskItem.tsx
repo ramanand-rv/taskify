@@ -20,7 +20,7 @@ const TaskItem = ({ title, description, date, isCompleted, isImportant }: Props)
     return (
         <TaskItemStyled theme={theme} className='task-tile'>
 
-            <h2 className='title capitalize'>{title}</h2>
+            <h1 className='title capitalize'>{title}</h1>
             <p className='desc'>{description}</p>
             <p className='date'>{formateDate(date)}</p>
             <div className="task-footer">
@@ -56,6 +56,58 @@ const TaskItemStyled = styled.div`
         margin-top: auto;
     }
 
+    >h1{
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+    
+    .task-footer{
+        display: flex;
+        align-items: center;
+        gap: 1.2rem;
+        /* justify-content: space-between; */
+    }
+
+    button{
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .edit {
+        font-size: 1.5rem;
+        margin-left: auto;
+        color: ${(props)=> props.theme.colorGrey2};
+        transition: all 0.3s ease;
+        &:hover{
+            color: #8080ff;
+            scale: 1.2;
+        }
+    }
+    .delete{
+        font-size: 1.5rem;
+        color: ${(props)=> props.theme.colorGrey2};
+        transition: all 0.2s ease;
+        &:hover{
+            color: #f83c3c;
+            scale: 1.2;
+        }
+    }
+
+    .completed,
+    .incomplete {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: ${(props)=> props.theme.colorDanger};
+        border-radius: 2rem;
+    }
+
+    .completed{
+        background-color: ${(props)=> props.theme.colorGreeenDark};
+    }
+    .incomplete{
+        background-color: ${(props)=> props.theme.colorGradient};
+    }
     
 
 
