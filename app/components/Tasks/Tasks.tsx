@@ -22,15 +22,16 @@ const Tasks = ({ title, tasks }: Props) => {
                     tasks.map((task) => (
                         <TaskItem
                             key={task.id}
-                            isCompleted={task.completed}
-                            isImportant={task.important}
+                            isCompleted={task.isCompleted}
+                            isImportant={task.isImportant}
                             title={task.title}
                             description={task.description}
                             id={task.id}
                             date={task.date}
 
                         />
-                    ))}
+                    ))
+                    }
                 <button className="create-task">
                     {add}
                     Add New Task
