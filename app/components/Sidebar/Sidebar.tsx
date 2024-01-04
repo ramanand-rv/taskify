@@ -6,6 +6,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { menu } from '@/app/utils/menu';
 import { usePathname, useRouter } from 'next/navigation'
+import Button from '../Button/Button'
+import { signout } from '@/app/utils/Icons'
 
 function handleClick(link: string) {
   console.log('Function not implemented.')
@@ -30,7 +32,7 @@ const Sidebar = () => {
         {'Tony Stark'}
       </h1>
     </div>
-    <ul className="nav-items justify-center mt-8">
+    <ul className="nav-items justify-center mb-8">
       {menu.map((item) => {
         const link = item.link;
         return (
@@ -43,9 +45,20 @@ const Sidebar = () => {
           >
             {item.icon}
             <Link href={link}>{item.title}</Link>
-          </li> )
-        })}
-      </ul>
+          </li>)
+      })}
+    </ul>
+    <div className="sign-out mb-6 p-2 mt-[160px] border-[1px] border-slate-700 rounded-lg
+    hover:border-slate-500 transition-all duration-200">
+      <Button
+        name={'Sign Out'}
+        type={'submit'}
+        padding={'0.4rem 0.8rem'}
+        borderRad={'0.8rem'}
+        fw={'500'}
+        fs={'1.2rem'}
+        icon={signout} />
+    </div>
   </SidebarStyles>
 }
 
@@ -58,7 +71,6 @@ const SidebarStyles = styled.nav`
 
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
 
   color: ${(props) => props.theme.colorGrey3};
 
@@ -216,6 +228,12 @@ const SidebarStyles = styled.nav`
 
   > button {
     margin: 1.5rem;
+  }
+
+  .sign-out{
+    position: relative;
+    align-items: center;
+    justify-content: center;
   }
 
 `;
