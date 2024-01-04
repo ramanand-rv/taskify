@@ -5,6 +5,7 @@ import { LuListTodo } from "react-icons/lu";
 import { MdLibraryAdd } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
+import { FaSignOutAlt } from "react-icons/fa";
 
 export const home = <FaHome />;
 export const important = <MdPriorityHigh />;
@@ -13,3 +14,4 @@ export const list = <LuListTodo />;
 export const add = <MdLibraryAdd />;
 export const edit = <FaEdit />;
 export const trash = <MdDelete />;
+export const signout = <FaSignOutAlt />;
