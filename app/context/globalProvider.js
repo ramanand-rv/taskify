@@ -15,7 +15,7 @@ export const GlobalProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [tasks, setTasks] = useState([]);
 
-    const {user} = useUser();
+  const {user} = useUser();
 
   const allTasks = async () =>{
     setIsLoading(true);
@@ -25,13 +25,29 @@ export const GlobalProvider = ({ children }) => {
       setIsLoading(false);
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
+    setIsLoading(false);
   }
+
   useEffect(() => {
     allTasks();
   }, [user]);
+
+  const deleteTask = async (id) => {
+    try {
+      const res = await axios.delete(`/api/tasks/${id}`);
+      toast.success('Task deleted successfully');
+      allTasks();
+    } catch (error) {
+      console.log(error);
+      toast.error('Something went wrong');
+    }
+  }
+
+
   return (
-    <GlobalContext.Provider value={{theme, tasks}}>
+    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading}}>
       <GlobalUpdateContext.Provider value={{}}>
         {children}
       </GlobalUpdateContext.Provider>
