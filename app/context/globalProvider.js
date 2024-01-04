@@ -26,7 +26,7 @@ export const GlobalProvider = ({ children }) => {
   }
   useEffect(() => {
     allTasks();
-  })
+  }, []);
   return (
     <GlobalContext.Provider value={{theme, tasks}}>
       <GlobalUpdateContext.Provider value={{}}>

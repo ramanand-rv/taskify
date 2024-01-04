@@ -62,8 +62,9 @@ const Sidebar = () => {
         fs={'1.2rem'}
         icon={signout} 
         click={()=>{
-           signOut(() => router.push('/signin')
-          )}}
+           signOut();
+          router.push('/signin')
+          }}
         />
     </div>
   </SidebarStyles>
