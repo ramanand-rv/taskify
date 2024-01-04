@@ -104,10 +104,10 @@ const TaskItemStyled = styled.div`
     }
 
     .completed{
-        background-color: ${(props)=> props.theme.colorGreeenDark};
+        background-color: green};
     }
     .incomplete{
-        background-color: ${(props)=> props.theme.colorGradient};
+        background-color: orange};
     }
     
 
