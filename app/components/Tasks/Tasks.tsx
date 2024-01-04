@@ -7,41 +7,47 @@ import CreateContent from '../Modals/CreateContent';
 import TaskItem from '../TaskItem/TaskItem';
 import { add } from '@/app/utils/Icons';
 
-interface Props{
+interface Props {
     title: string;
     tasks: any[];
 }
 
-const Tasks = ({title, tasks}:Props) => {
-    const {theme} = useGlobalState();
+const Tasks = ({ title, tasks }: Props) => {
+    const { theme, isLoading } = useGlobalState();
     return <TaskStyled theme={theme}>
         <h1>{title}</h1>
-        <div className="tasks grid">
-            {
-                tasks.map((task)=>(
-                    <TaskItem 
-                    key={task.id} 
-                    isCompleted ={task.completed}
-                    isImportant={task.important}
-                    title={task.title}
-                    description={task.description}
-                    id={task.id}
-                    date={task.date}
-                    
-                    />
-            ))}
-            <button className="create-task">
-                {add}
-                Add New Task
-            </button>
-        </div>
+        {!isLoading ? (
+            <div className="tasks grid">
+                {
+                    tasks.map((task) => (
+                        <TaskItem
+                            key={task.id}
+                            isCompleted={task.completed}
+                            isImportant={task.important}
+                            title={task.title}
+                            description={task.description}
+                            id={task.id}
+                            date={task.date}
+
+                        />
+                    ))}
+                <button className="create-task">
+                    {add}
+                    Add New Task
+                </button>
+            </div>
+        ) : (
+            <div className="task-loader w-full h-full flex items-center justify-center">
+                <span className='loader'></span>
+            </div>
+            )}
     </TaskStyled>
 }
 
 const TaskStyled = styled.main`
     width: 100%;
-    background-color: ${(props)=> props.theme.colorBg2};
-    border: 2px solid ${(props)=> props.theme.borderColor2};
+    background-color: ${(props) => props.theme.colorBg2};
+    border: 2px solid ${(props) => props.theme.borderColor2};
     border-radius: 1rem;
     overflow-y: auto;
     height: 100%;
@@ -62,16 +68,16 @@ const TaskStyled = styled.main`
         justify-content: center;
         gap: 0.5rem;
         height: 16rem;
-        color: ${(props)=> props.theme.colorGrey2};
+        color: ${(props) => props.theme.colorGrey2};
         font-weight: 600;
         cursor: pointer;
         border-radius: 1rem;
-        border: 2px dashed ${(props)=> props.theme.colorGrey5};
+        border: 2px dashed ${(props) => props.theme.colorGrey5};
         transition: all ease 0.3s;
 
         &:hover{
-            background-color: ${(props)=> props.theme.colorGrey5};
-            color: ${(props)=> props.theme.colorGrey0};
+            background-color: ${(props) => props.theme.colorGrey5};
+            color: ${(props) => props.theme.colorGrey0};
         }
     }
 
