@@ -35,6 +35,8 @@ function Button({
 
     return (
         <ButtonStyled
+        className="flex gap-3 justify-end "
+            theme={theme}
             type={type}
             style={{
                 background: background,
@@ -45,11 +47,11 @@ function Button({
                 border: border || "none",
                 color: color || theme.colorGrey0,
             }}
-            theme={theme}
             onClick={click}
         >
-            {icon && icon}
-            {name}
+        <span className="i relative ml-4 items-center">{icon && icon}</span>
+        <span className="name ml-3">{name}</span>
+            
         </ButtonStyled>
     );
 }
@@ -61,20 +63,20 @@ const ButtonStyled = styled.button`
   color: ${(props) => props.theme.colorGrey2};
   z-index: 5;
   cursor: pointer;
+  gap: 0.5rem;
 
   transition: all 0.55s ease-in-out;
 
-  i {
-    margin-right: 1rem;
+  .i, .name {
     color: ${(props) => props.theme.colorGrey2};
-    font-size: 1.5rem;
-    transition: all 0.55s ease-in-out;
+    font-size: 1rem;
+    transition: all 0.2s ease-in-out;
   }
 
   &:hover {
-    color: ${(props) => props.theme.colorGrey0};
-    i {
-      color: ${(props) => props.theme.colorGrey0};
+    color: white;
+    .i, .name {
+      color: white;
     }
   }
 `;
