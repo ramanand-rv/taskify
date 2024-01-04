@@ -8,6 +8,7 @@ import { menu } from '@/app/utils/menu';
 import { usePathname, useRouter } from 'next/navigation'
 import Button from '../Button/Button'
 import { signout } from '@/app/utils/Icons'
+import { useClerk  } from '@clerk/clerk-react' 
 
 function handleClick(link: string) {
   console.log('Function not implemented.')
@@ -17,6 +18,8 @@ function handleClick(link: string) {
 const Sidebar = () => {
   const router = useRouter();
   const pathname = usePathname();
+
+  const { signOut } = useClerk();
 
   const { theme } = useGlobalState();
   return <SidebarStyles theme={theme}>
@@ -57,7 +60,11 @@ const Sidebar = () => {
         borderRad={'0.8rem'}
         fw={'500'}
         fs={'1.2rem'}
-        icon={signout} />
+        icon={signout} 
+        click={()=>{
+           signOut(() => router.push('/signin')
+          )}}
+        />
     </div>
   </SidebarStyles>
 }
