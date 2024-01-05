@@ -45,9 +45,11 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  const completedTasks = tasks.filter((task)=> task.isCompleted === true);
+
 
   return (
-    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading}}>
+    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks}}>
       <GlobalUpdateContext.Provider value={{}}>
         {children}
       </GlobalUpdateContext.Provider>
