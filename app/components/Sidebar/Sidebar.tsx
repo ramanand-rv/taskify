@@ -47,7 +47,7 @@ const Sidebar = () => {
             //   handleClick(link);
             // }}
           >
-            {item.icon}
+            <div className="i">{item.icon}</div>
             <Link href={link}>{item.title}</Link>
           </li>)
       })}
@@ -244,7 +244,7 @@ const SidebarStyles = styled.nav`
   .active {
     background-color: ${(props) => props.theme.activeNavLink};
 
-    i,
+    .i,
     a {
       color: ${(props) => props.theme.colorIcons2};
     }
