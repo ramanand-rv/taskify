@@ -4,7 +4,6 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import styled from "styled-components";
-import Button from "../Button/Button";
 import { add } from "@/app/utils/Icons";
 
 function CreateContent() {
@@ -70,7 +69,10 @@ function CreateContent() {
     <CreateContentStyled onSubmit={handleSubmit} theme={theme}>
 
         <div className=" relative w-ful text-center font-extrabold text-xl items-center justify-center flex">
-          <h1 className=" w-1/2 bg-[#222255] rounded-2xl border-[2px] border-slate-500 ">Create a task</h1>
+          <h1 className=" w-1/2 rounded-2xl border-[2px] border-slate-500
+          bg-gradient-to-r from-gray-700 via-gray-900 to-black
+          hover:bg-gradient-to-l
+          ">Create a task</h1>
         </div>
 
         <div className="">
@@ -111,8 +113,10 @@ function CreateContent() {
           />
         </div>
 
-        <div className="input-control toggler select-none">
-          <label htmlFor="completed">Toggle Completed</label>
+        <div className="input-control toggler select-none
+        ">
+          <label
+           htmlFor="completed">Completed</label>
           <input
             value={completed.toString()}
             onChange={handleChange("completed")}
@@ -123,7 +127,7 @@ function CreateContent() {
         </div>
 
         <div className="input-control toggler select-none">
-          <label htmlFor="important">Toggle Important</label>
+          <label htmlFor="important">Important</label>
           <input
             value={important.toString()}
             onChange={handleChange("important")}
@@ -134,8 +138,8 @@ function CreateContent() {
         </div>
 
         <div className=" input-control submit-btn flex justify-center gap-1">
-          <button className=" flex items-center justify-center gap-1">
-              {add} <span>Create</span>
+          <button className=" flex items-center justify-center gap-2">
+            <div className="add-icon text-xl">{add}</div> <span className="text-xl">Create</span>
           </button>
         </div>
 
@@ -149,8 +153,8 @@ const CreateContentStyled = styled.form`
 padding: 2rem;
 
 button {
- border: 2px solid #24b4fb;
- background-color: #24b4fb;
+ border: 2px solid #21b1fd;
+ background-color: #0071e2;
  border-radius: 0.9em;
  padding: 0.8em 1.2em 0.8em 1em;
  transition: all ease-in-out 0.2s;
@@ -166,14 +170,11 @@ button span {
 }
 
 button:hover {
- background-color: #0071e2;
+ background-color: #0031b1;
+  border: 2px solid #21b1fd;
+
 }
 
-
-  /* .title{
-    align-items: center;
-    justify-content: center;
-  } */
   
   box-shadow: 0, 0, 1rem rgba(0, 0, 0, 0.4);
   border-radius: ${(props) => props.theme.borderRadiusMd2};
@@ -215,29 +216,6 @@ button:hover {
     }
   }
 
-  .submit-btn button {
-    transition: all 0.35s ease-in-out;
-
-    @media screen and (max-width: 500px) {
-      font-size: 0.9rem !important;
-      padding: 0.6rem 1rem !important;
-
-      i {
-        font-size: 1.2rem !important;
-        margin-right: 0.5rem !important;
-      }
-    }
-
-    i {
-      color: ${(props) => props.theme.colorGrey0};
-    }
-
-    &:hover {
-      background: ${(props) => props.theme.colorPrimaryGreen} !important;
-      color: ${(props) => props.theme.colorWhite} !important;
-    }
-  }
-
   .toggler {
     display: flex;
     align-items: center;
@@ -247,12 +225,26 @@ button:hover {
 
     label {
       flex: 1;
+      transition: all ease-in-out 0.2s;
+
+    }
+
+    label:hover{
+      color: #a99afd;
+      transition: all ease-in-out 0.2s;
+
     }
 
     input {
       width: 20px;
       height: 20px;
     }
+    input:hover{
+      transform: scale(1.5);
+      transition: all ease-in-out 0.150s;
+
+    }
+
   }
 `;
 
