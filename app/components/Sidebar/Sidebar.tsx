@@ -9,10 +9,11 @@ import { usePathname, useRouter } from 'next/navigation'
 import Button from '../Button/Button'
 import { signout } from '@/app/utils/Icons'
 import { useClerk  } from '@clerk/clerk-react' 
+import { UserButton } from '@clerk/nextjs'
 
-function handleClick(link: string) {
-  console.log('Function not implemented.')
-}
+// function handleClick(link: string) {
+//   console.log('Function not implemented.')
+// }
 
 
 const Sidebar = () => {
@@ -29,7 +30,7 @@ const Sidebar = () => {
         <Image width={70} height={70} src={'/unnamed.jpg'} alt="profile" />
       </div>
       <div className="user-btn absolute z-20 top-0 w-full h-full">
-        {/* <UserButton /> */}
+        <UserButton />
       </div>
       <h1 className="capitalize">
         {'Tony Stark'}
@@ -42,9 +43,9 @@ const Sidebar = () => {
           <li
             key={item.id}
             className={`nav-item ${pathname === link ? "active" : ""}`}
-            onClick={() => {
-              handleClick(link);
-            }}
+            // onClick={() => {
+            //   handleClick(link);
+            // }}
           >
             {item.icon}
             <Link href={link}>{item.title}</Link>
@@ -88,6 +89,25 @@ const SidebarStyles = styled.nav`
     z-index: 100;
 
     transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);
+  }
+
+  .user-btn{
+    .cl-rootBox{
+      width: 100%;
+      height: 100%;
+
+      .cl-userButtonBox {
+        width: 100%;
+        height: 100%;
+        
+        .cl-userButtonTrigger{
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+
+        }
+      }
+    }
   }
 
   .profile {
