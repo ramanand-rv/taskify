@@ -15,6 +15,8 @@ export const GlobalProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [tasks, setTasks] = useState([]);
 
+  const [modal, setModal] = useState(false);
+
   const {user} = useUser();
 
   const allTasks = async () =>{
@@ -56,13 +58,20 @@ export const GlobalProvider = ({ children }) => {
     }
   }
 
+  const openModal = () => {
+    setModal(true);
+  }
+  const closeModal = () => {
+    setModal(false);
+  }
+
   const completedTasks = tasks.filter((task)=> task.isCompleted === true);
   const importantTasks = tasks.filter((task)=> task.isImportant === true);
   const todoTasks = tasks.filter((task)=> task.isCompleted === false);
 
 
   return (
-    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask}}>
+    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask, modal, openModal, closeModal}}>
       <GlobalUpdateContext.Provider value={{}}>
         {children}
       </GlobalUpdateContext.Provider>

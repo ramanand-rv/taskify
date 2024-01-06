@@ -143,6 +143,8 @@ const CreateContentStyled = styled.form`
     font-size: clamp(1.2rem, 5vw, 1.6rem);
     font-weight: 600;
   }
+  box-shadow: 0, 0, 1rem rgba(0, 0, 0, 0.4);
+  border-radius: ${(props) => props.theme.borderRadiusMd2}
 
   color: ${(props) => props.theme.colorGrey1};
 
@@ -169,6 +171,9 @@ const CreateContentStyled = styled.form`
     textarea {
       width: 100%;
       padding: 1rem;
+      border: none;
+      padding: 1rem;
+      resize: none;
 
       resize: none;
       background-color: ${(props) => props.theme.colorGreyDark};
