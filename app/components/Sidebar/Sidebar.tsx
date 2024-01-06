@@ -9,7 +9,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import Button from '../Button/Button'
 import { signout } from '@/app/utils/Icons'
 import { useClerk  } from '@clerk/clerk-react' 
-import { UserButton } from '@clerk/nextjs'
+import { UserButton, useUser } from '@clerk/nextjs'
 
 // function handleClick(link: string) {
 //   console.log('Function not implemented.')
@@ -22,18 +22,25 @@ const Sidebar = () => {
 
   const { signOut } = useClerk();
 
+  const {user} = useUser();
+  const {fullName, imageUrl} = user || {
+    fullName: '',
+    imageUrl: '/unnamed.jpg'
+  };
+  // console.log(user);
+
   const { theme } = useGlobalState();
   return <SidebarStyles theme={theme}>
     <div className="profile">
       <div className="profile-overlay"></div>
       <div className="image">
-        <Image width={70} height={70} src={'/unnamed.jpg'} alt="profile" />
+        <Image width={70} height={70} src={imageUrl} alt="profile" />
       </div>
       <div className="user-btn absolute z-20 top-0 w-full h-full">
         <UserButton />
       </div>
       <h1 className="capitalize">
-        {'Tony Stark'}
+        {fullName}
       </h1>
     </div>
     <ul className="nav-items justify-center mb-8">
@@ -77,6 +84,7 @@ const SidebarStyles = styled.nav`
   background-color: ${(props) => props.theme.colorBg2};
   border: 2px solid ${(props) => props.theme.borderColor2};
   border-radius: 1rem;
+  overflow-wrap:break-word;
 
   display: flex;
   flex-direction: column;
@@ -111,14 +119,15 @@ const SidebarStyles = styled.nav`
   }
 
   .profile {
-    margin: 1.5rem;
+    margin: 1rem;
     padding: 1rem 0.8rem;
     position: relative;
+    overflow: hidden;
 
     border-radius: 1rem;
     cursor: pointer;
 
-    font-weight: 500;
+    font-weight: 400;
     color: ${(props) => props.theme.colorGrey0};
 
     display: flex;
