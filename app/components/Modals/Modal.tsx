@@ -49,7 +49,6 @@ const ModalStyled = styled.div`
         position: absolute;
         width: 400px;
         height: calc(100vh - 100px);
-        //background: rgba(255, 255, 255, 0.2);
         background: transparent;
         box-shadow: 0 25px 45px 0 rgba(0, 0, 0, 0.37);
         border-radius: 50px;
@@ -57,6 +56,9 @@ const ModalStyled = styled.div`
         border-right: 2px solid rgba(255, 255, 255, 0.2);
         border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         backdrop-filter: blur(10px);
+        -webkit-box-shadow:0px 0px 242px 52px rgba(1,20,89,0.68);
+-moz-box-shadow: 0px 0px 242px 52px rgba(1,20,89,0.68);
+box-shadow: 0px 0px 242px 52px rgba(1,20,89,0.68);
     }
 
     .modal-content{

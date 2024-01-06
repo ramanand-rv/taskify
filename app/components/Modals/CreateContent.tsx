@@ -68,8 +68,8 @@ function CreateContent() {
 
     return (
         <CreateContentStyled onSubmit={handleSubmit} theme={theme}>
-            <h1>Create a Task</h1>
             <div className="input-control">
+            <h1 className="w-ful text-center font-extrabold text-xl">Create a task</h1>
                 <label htmlFor="title">Title</label>
                 <input
                     type="text"
@@ -79,7 +79,7 @@ function CreateContent() {
                     onChange={handleChange("title")}
                     placeholder="e.g, Watch a video from Fireship."
                 />
-            </div>
+            {/* </div> */}
             <div className="input-control">
                 <label htmlFor="description">Description</label>
                 <textarea
@@ -123,7 +123,7 @@ function CreateContent() {
             </div>
 
             <div className="submit-btn flex justify-end">
-                <Button
+                {/* <Button
                     type="submit"
                     name="Create Task"
                     icon={add}
@@ -132,19 +132,54 @@ function CreateContent() {
                     fw={"500"}
                     fs={"1.2rem"}
                     background={"rgb(0, 163, 255)"}
-                />
+                /> */}
+          <button>
+            <span>
+              {add} Create
+            </span>
+          </button>
             </div>
+        </div>
         </CreateContentStyled>
     );
 }
 
 const CreateContentStyled = styled.form`
-  > h1 {
-    font-size: clamp(1.2rem, 5vw, 1.6rem);
-    font-weight: 600;
+
+button {
+ border: 2px solid #24b4fb;
+ background-color: #24b4fb;
+ border-radius: 0.9em;
+ padding: 0.8em 1.2em 0.8em 1em;
+ transition: all ease-in-out 0.2s;
+ font-size: 16px;
+}
+
+button span {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ color: #fff;
+ font-weight: 600;
+}
+
+button:hover {
+ background-color: #0071e2;
+}
+
+
+
+  >h1 {
+    /* font-size: clamp(1.2rem, 5vw, 1.6rem); */
   }
+
+  .title{
+    align-items: center;
+    justify-content: center;
+  }
+  
   box-shadow: 0, 0, 1rem rgba(0, 0, 0, 0.4);
-  border-radius: ${(props) => props.theme.borderRadiusMd2}
+  border-radius: ${(props) => props.theme.borderRadiusMd2};
 
   color: ${(props) => props.theme.colorGrey1};
 
