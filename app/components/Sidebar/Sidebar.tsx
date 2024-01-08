@@ -95,14 +95,27 @@ const SidebarStyles = styled.nav<{collapsed: boolean}>`
 
   color: ${(props) => props.theme.colorGrey3};
 
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    height: calc(100vh - 4rem);
+    z-index: 100;
+
+    transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);
+
+    .toggle-nav{
+      display: block !important;
+    }
+  }
+
   transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);
   transform: ${(props) => props.collapsed ? 'translateX(-120%)' : 'translate(0)'};
 
   .toggle-nav{
+    display: none;
     position: absolute;
-    right: -6.5rem;
-    top: 0;
-    padding: 0.5rem;
+    right: -116px;
+    top: -24px;
+    padding: 0.3rem;
 
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
@@ -112,13 +125,13 @@ const SidebarStyles = styled.nav<{collapsed: boolean}>`
 
   }
 
-  @media screen and (max-width: 768px) {
+  /* @media screen and (max-width: 768px) {
     position: fixed;
     height: calc(100vh - 4rem);
     z-index: 100;
 
     transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);
-  }
+  } */
 
   .user-btn{
     .cl-rootBox{

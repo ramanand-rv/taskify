@@ -67,6 +67,12 @@ const TaskStyled = styled.main`
         font-size: clamp(1.5rem, 2vw, 2rem);
     }
 
+    @media screen and (max-width: 768px) {
+    h1{
+        text-align: center;
+    }
+  }
+
     .create-task{
         display: flex;
         align-items: center;
