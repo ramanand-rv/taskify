@@ -37,7 +37,7 @@ const Sidebar = () => {
     </button>
     <div className="profile">
       <div className="profile-overlay"></div>
-      <div className="image">
+      <div className="image items-center">
         <Image width={70} height={70} src={imageUrl} alt="profile" />
       </div>
       <div className="user-btn absolute z-20 top-0 w-full h-full">
