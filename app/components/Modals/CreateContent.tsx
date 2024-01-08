@@ -226,7 +226,7 @@ button:hover {
     label {
       flex: 1;
       transition: all ease-in-out 0.2s;
-
+      cursor: pointer;
     }
 
     label:hover{
@@ -238,6 +238,7 @@ button:hover {
     input {
       width: 20px;
       height: 20px;
+      cursor: pointer;
     }
     input:hover{
       transform: scale(1.5);
