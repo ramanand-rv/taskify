@@ -14,6 +14,12 @@ const GlobalStyles = styled.div`
   display: flex;
   gap: 2.5rem;
   height: 100vh;
+  transition: all ease-in-out 0.2s;
+
+  @media screen and (max-width: 768px) {
+    padding: 1rem;
+    gap: 1rem;
+  }
 
   .grid{
     display: grid;

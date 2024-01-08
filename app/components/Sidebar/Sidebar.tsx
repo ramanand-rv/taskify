@@ -7,7 +7,7 @@ import styled from 'styled-components'
 import { menu } from '@/app/utils/menu';
 import { usePathname, useRouter } from 'next/navigation'
 import Button from '../Button/Button'
-import { signout } from '@/app/utils/Icons'
+import { burger, leftArrow, signout } from '@/app/utils/Icons'
 import { useClerk  } from '@clerk/clerk-react' 
 import { UserButton, useUser } from '@clerk/nextjs'
 
@@ -29,8 +29,12 @@ const Sidebar = () => {
   };
   // console.log(user);
 
-  const { theme } = useGlobalState();
+  const { theme, sidebarCollapsed, collapseMenu } = useGlobalState();
   return <SidebarStyles theme={theme}>
+    <button className='toggle-nav animate-pulse '
+    onClick={collapseMenu}>
+      {sidebarCollapsed ? burger : leftArrow}
+    </button>
     <div className="profile">
       <div className="profile-overlay"></div>
       <div className="image">
@@ -91,9 +95,23 @@ const SidebarStyles = styled.nav`
 
   color: ${(props) => props.theme.colorGrey3};
 
+  .toggle-nav{
+    position: absolute;
+    right: -6.5rem;
+    top: 0;
+    padding: 0.5rem;
+
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+
+    background-color: ${(props)=> props.theme.colorBg2};
+    font-size: 4rem;
+
+  }
+
   @media screen and (max-width: 768px) {
     position: fixed;
-    height: calc(100vh - 2rem);
+    height: calc(100vh - 4rem);
     z-index: 100;
 
     transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);

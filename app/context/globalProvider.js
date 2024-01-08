@@ -16,8 +16,13 @@ export const GlobalProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
 
   const [modal, setModal] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const {user} = useUser();
+
+  const collapseMenu = () => {
+    setSidebarCollapsed(!sidebarCollapsed);
+  }
 
   const allTasks = async () =>{
     setIsLoading(true);
@@ -75,7 +80,7 @@ export const GlobalProvider = ({ children }) => {
 
 
   return (
-    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask, modal, openModal, closeModal, allTasks}}>
+    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask, modal, openModal, closeModal, allTasks, sidebarCollapsed, collapseMenu}}>
       <GlobalUpdateContext.Provider value={{}}>
         {children}
       </GlobalUpdateContext.Provider>

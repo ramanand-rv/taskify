@@ -6,6 +6,8 @@ import { MdLibraryAdd } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { FaSignOutAlt } from "react-icons/fa";
+import { TfiMenuAlt } from "react-icons/tfi";
+import { BiSolidLeftArrowAlt } from "react-icons/bi";
 
 export const home = <FaHome />;
 export const important = <MdPriorityHigh />;
@@ -15,3 +17,5 @@ export const add = <MdLibraryAdd />;
 export const edit = <FaEdit />;
 export const trash = <MdDelete />;
 export const signout = <FaSignOutAlt />;
+export const burger = <TfiMenuAlt  />;
+export const leftArrow = <BiSolidLeftArrowAlt  />;
