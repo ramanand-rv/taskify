@@ -23,6 +23,12 @@ body {
   height: 100vh;
 }
 
+input[type='date']::-webkit-calendar-picker-indicator{
+  filter:invert(1);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
 input,
 textarea {
   border: none;
