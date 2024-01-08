@@ -8,7 +8,7 @@ import { menu } from '@/app/utils/menu';
 import { usePathname, useRouter } from 'next/navigation'
 import Button from '../Button/Button'
 import { burger, leftArrow, signout } from '@/app/utils/Icons'
-import { useClerk  } from '@clerk/clerk-react' 
+import { useClerk } from '@clerk/clerk-react'
 import { UserButton, useUser } from '@clerk/nextjs'
 
 // function handleClick(link: string) {
@@ -22,17 +22,17 @@ const Sidebar = () => {
 
   const { signOut } = useClerk();
 
-  const {user} = useUser();
-  const {fullName, imageUrl} = user || {
+  const { user } = useUser();
+  const { fullName, imageUrl } = user || {
     fullName: '',
     imageUrl: '/unnamed.jpg'
   };
   // console.log(user);
 
   const { theme, sidebarCollapsed, collapseMenu } = useGlobalState();
-  return <SidebarStyles theme={theme} collapsed = {sidebarCollapsed}>
+  return <SidebarStyles theme={theme} collapsed={sidebarCollapsed}>
     <button className='toggle-nav animate-pulse border-[1px] border-slate-600 rounded-md'
-    onClick={collapseMenu}>
+      onClick={collapseMenu}>
       {sidebarCollapsed ? burger : leftArrow}
     </button>
     <div className="profile">
@@ -54,35 +54,37 @@ const Sidebar = () => {
           <li
             key={item.id}
             className={`nav-item ${pathname === link ? "active" : ""}`}
-            // onClick={() => {
-            //   handleClick(link);
-            // }}
+          // onClick={() => {
+          //   handleClick(link);
+          // }}
           >
             <div className="i">{item.icon}</div>
             <Link href={link}>{item.title}</Link>
           </li>)
       })}
     </ul>
-    <div className="sign-out mb-6 p-2 mt-[160px] border-[1px] border-slate-700 rounded-lg
-    hover:border-slate-500 transition-all duration-200">
-      <Button
-        name={'Sign Out'}
-        type={'submit'}
-        padding={'0.4rem 0.8rem'}
-        borderRad={'0.8rem'}
-        fw={'500'}
-        fs={'1.2rem'}
-        icon={signout} 
-        click={()=>{
-           signOut();
-          router.push('/signin')
+      <div className=" h-full flex items-end justify-center w-full text-center ">
+        <div className="sign-out p-2 border-[1px] border-slate-700 rounded-lg mb-[42px] w-full
+        hover:border-slate-500 transition-all duration-200">
+        <Button
+          name={'Sign Out'}
+          type={'submit'}
+          padding={'0.4rem 0.8rem'}
+          borderRad={'0.4rem'}
+          fw={'500'}
+          fs={'1.2rem'}
+          icon={signout}
+          click={() => {
+            signOut();
+            router.push('/signin')
           }}
         />
-    </div>
-  </SidebarStyles>
+      </div>
+    </div >
+  </SidebarStyles >
 }
 
-const SidebarStyles = styled.nav<{collapsed: boolean}>`
+const SidebarStyles = styled.nav<{ collapsed: boolean }>`
   position: relative;
   width: ${(props) => props.theme.sidebarWidth};
   background-color: ${(props) => props.theme.colorBg2};
@@ -120,7 +122,7 @@ const SidebarStyles = styled.nav<{collapsed: boolean}>`
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
 
-    background-color: ${(props)=> props.theme.colorBg2};
+    background-color: ${(props) => props.theme.colorBg2};
     font-size: 2rem;
 
   }

@@ -37,7 +37,7 @@ function Button({
 
     return (
         <ButtonStyled
-        className="flex gap-3 justify-end "
+        className="flex gap-3 justify-center "
             theme={theme}
             type={type}
             style={{
@@ -51,7 +51,7 @@ function Button({
             }}
             onClick={click}
         >
-        <span className="i relative ml-4 items-center">{icon && icon}</span>
+        <span className="i relative ml-4 items-center ">{icon && icon}</span>
         <span className="name ml-3">{name}</span>
             
         </ButtonStyled>
@@ -66,6 +66,7 @@ const ButtonStyled = styled.button`
   z-index: 5;
   cursor: pointer;
   gap: 0.5rem;
+  justify-content: center !important;
 
   transition: all 0.55s ease-in-out;
 
