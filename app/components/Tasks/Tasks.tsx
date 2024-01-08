@@ -61,7 +61,7 @@ const TaskStyled = styled.main`
         width: 0.5rem;
     }
     >h1{
-        margin: 1rem 1rem 1rem;
+        margin: 1rem 3rem 1rem;
         font-weight: 800;
         position: relative;
         font-size: clamp(1.5rem, 2vw, 2rem);

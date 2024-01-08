@@ -30,8 +30,8 @@ const Sidebar = () => {
   // console.log(user);
 
   const { theme, sidebarCollapsed, collapseMenu } = useGlobalState();
-  return <SidebarStyles theme={theme}>
-    <button className='toggle-nav animate-pulse '
+  return <SidebarStyles theme={theme} collapsed = {sidebarCollapsed}>
+    <button className='toggle-nav animate-pulse border-[1px] border-slate-600 rounded-md'
     onClick={collapseMenu}>
       {sidebarCollapsed ? burger : leftArrow}
     </button>
@@ -82,7 +82,7 @@ const Sidebar = () => {
   </SidebarStyles>
 }
 
-const SidebarStyles = styled.nav`
+const SidebarStyles = styled.nav<{collapsed: boolean}>`
   position: relative;
   width: ${(props) => props.theme.sidebarWidth};
   background-color: ${(props) => props.theme.colorBg2};
@@ -95,6 +95,9 @@ const SidebarStyles = styled.nav`
 
   color: ${(props) => props.theme.colorGrey3};
 
+  transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);
+  transform: ${(props) => props.collapsed ? 'translateX(-120%)' : 'translate(0)'};
+
   .toggle-nav{
     position: absolute;
     right: -6.5rem;
@@ -105,7 +108,7 @@ const SidebarStyles = styled.nav`
     border-bottom-right-radius: 0.5rem;
 
     background-color: ${(props)=> props.theme.colorBg2};
-    font-size: 4rem;
+    font-size: 2rem;
 
   }
 
