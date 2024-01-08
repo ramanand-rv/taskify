@@ -57,12 +57,13 @@ function CreateContent() {
 
       if (!res.data.error) {
         toast.success("Task created successfully.");
-
+        closeModal();
       }
     } catch (error) {
       toast.error("Something went wrong.");
       console.log(error);
     }
+
   };
 
   return (
