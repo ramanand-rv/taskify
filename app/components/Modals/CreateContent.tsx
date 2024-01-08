@@ -59,6 +59,7 @@ function CreateContent() {
         toast.success("Task created successfully.");
         closeModal();
       }
+      allTasks();
     } catch (error) {
       toast.error("Something went wrong.");
       console.log(error);

@@ -71,7 +71,7 @@ export const GlobalProvider = ({ children }) => {
 
 
   return (
-    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask, modal, openModal, closeModal}}>
+    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask, modal, openModal, closeModal, allTasks}}>
       <GlobalUpdateContext.Provider value={{}}>
         {children}
       </GlobalUpdateContext.Provider>
