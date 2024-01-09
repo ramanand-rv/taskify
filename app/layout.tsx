@@ -13,7 +13,7 @@ const nunito = Nunito({
 })
 
 export const metadata: Metadata = {
-  title: 'Taskify',
+  title: 'Taskify | Daily Task Manager',
   description: 'Simplifying your day with efficient daily task management app.',
 }
 
