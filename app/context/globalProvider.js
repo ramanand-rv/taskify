@@ -31,11 +31,11 @@ export const GlobalProvider = ({ children }) => {
       const sortedTasks = res.data.sort((a,b)=> {
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       });
-      console.log(sortedTasks);
+      // console.log(sortedTasks);
       setTasks(sortedTasks);
       setIsLoading(false);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       setIsLoading(false);
     }
     setIsLoading(false);
@@ -51,7 +51,7 @@ export const GlobalProvider = ({ children }) => {
       toast.success('Task deleted successfully');
       allTasks();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error('Something went wrong');
     }
   }
@@ -62,7 +62,7 @@ export const GlobalProvider = ({ children }) => {
       toast.success('Task updated');
       allTasks();
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error('Something went wrong');
     }
   }
