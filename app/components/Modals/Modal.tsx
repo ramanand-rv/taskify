@@ -2,7 +2,6 @@
 
 import { useGlobalState } from '@/app/context/globalProvider';
 import React from 'react';
-import CreateContent from './CreateContent';
 import styled from 'styled-components';
 
 interface Props {

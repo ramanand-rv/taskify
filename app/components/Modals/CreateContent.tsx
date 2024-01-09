@@ -1,10 +1,10 @@
 "use client";
 import { useGlobalState } from "@/app/context/globalProvider";
+import { add } from "@/app/utils/Icons";
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import styled from "styled-components";
-import { add } from "@/app/utils/Icons";
 
 function CreateContent() {
   const [title, setTitle] = useState("");
@@ -70,26 +70,26 @@ function CreateContent() {
   return (
     <CreateContentStyled onSubmit={handleSubmit} theme={theme}>
 
-        <div className=" relative w-ful text-center font-extrabold text-xl items-center justify-center flex">
-          <h1 className=" w-1/2 rounded-2xl border-[2px] border-slate-500
+      <div className=" relative w-ful text-center font-extrabold text-xl items-center justify-center flex">
+        <h1 className=" w-1/2 rounded-2xl border-[2px] border-slate-500
           bg-gradient-to-r from-gray-700 via-gray-900 to-black
           hover:bg-gradient-to-l
           ">Create a task</h1>
-        </div>
+      </div>
 
-        <div className="">
-      <div className="input-control">
+      <div className="">
+        <div className="input-control">
 
-        <label htmlFor="title">Title</label>
-        <input 
-          type="text"
-          id="title"
-          value={title}
-          name="title"
-          onChange={handleChange("title")}
-          placeholder="e.g, Watch a video from Fireship."
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            value={title}
+            name="title"
+            onChange={handleChange("title")}
+            placeholder="e.g, Watch a video from Fireship."
           />
-          </div>
+        </div>
 
         <div className="input-control">
           <label htmlFor="description">Description</label>
@@ -118,7 +118,7 @@ function CreateContent() {
         <div className="input-control toggler select-none
         ">
           <label
-           htmlFor="completed">Completed</label>
+            htmlFor="completed">Completed</label>
           <input
             value={completed.toString()}
             onChange={handleChange("completed")}

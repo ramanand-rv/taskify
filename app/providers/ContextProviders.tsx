@@ -1,30 +1,30 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import { GlobalProvider } from '../context/globalProvider';
+import React, { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
+import { GlobalProvider } from '../context/globalProvider';
 
-interface Props{
+interface Props {
     children: React.ReactNode;
 }
-const ContextProviders = ({children}:Props) => {
+const ContextProviders = ({ children }: Props) => {
     const [isReady, setIsReady] = useState(false);
-    useEffect(()=>{
+    useEffect(() => {
         setTimeout(() => {
             setIsReady(true);
         }, 200);
     }, []);
-    if(!isReady){
+    if (!isReady) {
         return <div className='w-full h-full flex items-center justify-center'>
             <span className="loader"></span>
         </div>;
     }
 
-  return <GlobalProvider >
-    <Toaster />
-    {children} 
+    return <GlobalProvider >
+        <Toaster />
+        {children}
     </GlobalProvider>
-  
+
 }
 
 export default ContextProviders

@@ -1,16 +1,14 @@
 'use client'
 import { useGlobalState } from '@/app/context/globalProvider'
-import Image from 'next/image'
-import Link from 'next/link'
-import React from 'react'
-import styled from 'styled-components'
-import { menu } from '@/app/utils/menu';
-import { usePathname, useRouter } from 'next/navigation'
-import Button from '../Button/Button'
 import { burger, leftArrow, signout } from '@/app/utils/Icons'
+import { menu } from '@/app/utils/menu'
 import { useClerk } from '@clerk/clerk-react'
 import { UserButton, useUser } from '@clerk/nextjs'
-
+import Image from 'next/image'
+import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
+import styled from 'styled-components'
+import Button from '../Button/Button'
 // function handleClick(link: string) {
 //   console.log('Function not implemented.')
 // }
@@ -63,8 +61,8 @@ const Sidebar = () => {
           </li>)
       })}
     </ul>
-      <div className=" h-full flex items-end justify-center w-full text-center ">
-        <div className="sign-out p-2 border-[1px] border-slate-700 rounded-lg mb-[42px] w-full
+    <div className=" h-full flex items-end justify-center w-full text-center ">
+      <div className="sign-out p-2 border-[1px] border-slate-700 rounded-lg mb-[42px] w-full
         hover:border-slate-500 transition-all duration-200">
         <Button
           name={'Sign Out'}

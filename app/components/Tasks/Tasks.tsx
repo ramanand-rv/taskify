@@ -1,12 +1,11 @@
 'use client'
 
 import { useGlobalState } from '@/app/context/globalProvider';
-import React from 'react'
+import { add } from '@/app/utils/Icons';
 import styled from 'styled-components';
 import CreateContent from '../Modals/CreateContent';
-import TaskItem from '../TaskItem/TaskItem';
-import { add } from '@/app/utils/Icons';
 import Modal from '../Modals/Modal';
+import TaskItem from '../TaskItem/TaskItem';
 
 interface Props {
     title: string;
@@ -14,10 +13,10 @@ interface Props {
 }
 
 const Tasks = ({ title, tasks }: Props) => {
-    const { theme, isLoading, openModal, closeModal, modal  } = useGlobalState();
+    const { theme, isLoading, openModal, closeModal, modal } = useGlobalState();
     return <TaskStyled theme={theme}>
 
-        { modal && <Modal content={<CreateContent />} /> }
+        {modal && <Modal content={<CreateContent />} />}
 
         <h1>{title}</h1>
         {!isLoading ? (
@@ -35,7 +34,7 @@ const Tasks = ({ title, tasks }: Props) => {
 
                         />
                     ))
-                    }
+                }
                 <button className="create-task" onClick={openModal}>
                     {add}
                     Add New Task
@@ -45,7 +44,7 @@ const Tasks = ({ title, tasks }: Props) => {
             <div className="task-loader w-full h-full flex items-center justify-center">
                 <span className='loader'></span>
             </div>
-            )}
+        )}
     </TaskStyled>
 }
 

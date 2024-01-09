@@ -1,9 +1,9 @@
 'use client';
-import React, { createContext, useContext, useEffect, useState } from 'react'
-import themes from './theme';
-import axios from 'axios';
-import toast from 'react-hot-toast';
 import { useUser } from '@clerk/nextjs';
+import axios from 'axios';
+import { createContext, useContext, useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import themes from './theme';
 
 export const GlobalContext = createContext();
 export const GlobalUpdateContext = createContext();
@@ -18,17 +18,17 @@ export const GlobalProvider = ({ children }) => {
   const [modal, setModal] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  const {user} = useUser();
+  const { user } = useUser();
 
   const collapseMenu = () => {
     setSidebarCollapsed(!sidebarCollapsed);
   }
 
-  const allTasks = async () =>{
+  const allTasks = async () => {
     setIsLoading(true);
     try {
       const res = await axios.get('/api/tasks');
-      const sortedTasks = res.data.sort((a,b)=> {
+      const sortedTasks = res.data.sort((a, b) => {
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       });
       // console.log(sortedTasks);
@@ -58,7 +58,7 @@ export const GlobalProvider = ({ children }) => {
 
   const updateTask = async (task) => {
     try {
-      const res = await axios.put(`/api/tasks`,task);
+      const res = await axios.put(`/api/tasks`, task);
       toast.success('Task updated');
       allTasks();
     } catch (error) {
@@ -74,13 +74,13 @@ export const GlobalProvider = ({ children }) => {
     setModal(false);
   }
 
-  const completedTasks = tasks.filter((task)=> task.isCompleted === true);
-  const importantTasks = tasks.filter((task)=> task.isImportant === true);
-  const todoTasks = tasks.filter((task)=> task.isCompleted === false);
+  const completedTasks = tasks.filter((task) => task.isCompleted === true);
+  const importantTasks = tasks.filter((task) => task.isImportant === true);
+  const todoTasks = tasks.filter((task) => task.isCompleted === false);
 
 
   return (
-    <GlobalContext.Provider value={{theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask, modal, openModal, closeModal, allTasks, sidebarCollapsed, collapseMenu}}>
+    <GlobalContext.Provider value={{ theme, tasks, deleteTask, isLoading, completedTasks, importantTasks, todoTasks, updateTask, modal, openModal, closeModal, allTasks, sidebarCollapsed, collapseMenu }}>
       <GlobalUpdateContext.Provider value={{}}>
         {children}
       </GlobalUpdateContext.Provider>
